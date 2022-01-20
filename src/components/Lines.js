@@ -19,7 +19,8 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
     setNumPlayer(numPlayer == 1 ? 2 : 1);
     refresher();
   };
-
+  let typeLines = line.filter((line) => line.type == numPlayer);
+  // console.log(typeLines);
   return line.map((value, key) => {
     return (
       <Line
@@ -31,10 +32,10 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
         key={key}
         onClick={() => {
           typePlayer(key);
+          console.log(line);
+          console.log(`type player in Lines ${numPlayer}`);
           liness = [...linesArray, value.id];
           setLinesArray(liness);
-          let typeLines = liness.filter((line) => line.type == numPlayer);
-          console.log(typeLines);
           triangle(typeLines, numPlayer);
         }}
         className={"line type" + value.type}

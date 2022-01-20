@@ -4,9 +4,7 @@ import Lines from "./Lines";
 
 function triangle(lines, type) {
   let triangleTest = false;
-  // let type1Lines = lines.filter((line) => line.type == 1);
-  // let type2Lines = lines.filter((line) => line.type == 2);
-  // console.log(lines);
+  console.log(`type player in triangle ${type}`);
   for (let i = 0; i < lines.length; i++) {
     for (let j = 0; j < lines.length; j++) {
       if (j == i) continue;

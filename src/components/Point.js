@@ -44,10 +44,10 @@ const Point = ({ setLine, number }) => {
       }
     }
     setPoint(pointsArray);
-    console.log(pointsArray);
+    // console.log(pointsArray);
 
     setLine(lineArray);
-    console.log(lineArray);
+    // console.log(lineArray);
   }, []);
 
   return point.map((value, key) => {
