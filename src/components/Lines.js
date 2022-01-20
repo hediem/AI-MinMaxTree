@@ -33,7 +33,9 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
           typePlayer(key);
           liness = [...linesArray, value.id];
           setLinesArray(liness);
-          triangle(liness, numPlayer);
+          let typeLines = liness.filter((line) => line.type == numPlayer);
+          console.log(typeLines);
+          triangle(typeLines, numPlayer);
         }}
         className={"line type" + value.type}
       />
