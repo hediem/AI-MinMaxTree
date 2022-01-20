@@ -1,11 +1,9 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
-import Alert from "./Alert";
-
-const Triangle = ({ lines, type }) => {
-  console.log("CTriangle");
-  const [triangleTest, setTriangleTest] = useState(false);
-
+function triangle(lines, type) {
+  // console.log("CTriangle");
+  let triangleTest = false;
   for (let i = 0; i < lines.length; i++) {
     for (let j = 0; j < lines.length; j++) {
       if (j == i) continue;
@@ -19,10 +17,9 @@ const Triangle = ({ lines, type }) => {
               lines[i].p2 == lines[k].p1 ||
               lines[i].p2 == lines[k].p2
             ) {
-              // setTriangleTest(true);
-              console.log("triangle");
-              console.log(triangleTest);
-              setTriangleTest(true);
+              // console.log("triangle");
+              // console.log(triangleTest);
+              triangleTest = true;
             }
           }
         }
@@ -36,16 +33,28 @@ const Triangle = ({ lines, type }) => {
               lines[i].p2 == lines[k].p1 ||
               lines[i].p2 == lines[k].p2
             ) {
-              // setTriangleTest(true);
-              console.log("triangle");
-              console.log(triangleTest);
-              setTriangleTest(true);
+              // console.log("triangle");
+              // console.log(triangleTest);
+              triangleTest = true;
             }
           }
         }
       }
     }
   }
-  return triangleTest ? <Alert numPlayer={type} /> : "";
-};
-export default Triangle;
+
+  function theAlert(numPlayer) {
+    // console.log("Alert");
+    let my_icon = numPlayer == 1 ? "success" : "error";
+    Swal.fire({
+      icon: my_icon,
+      title: `${numPlayer == 1 ? "Hey..." : "Oops..."} `,
+      text: `${numPlayer == 1 ? "You Win" : "You Lost,Computer Win"}`,
+    });
+  }
+  if (triangleTest) theAlert();
+
+  return triangleTest;
+}
+
+export { triangle };

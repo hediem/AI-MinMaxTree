@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { Line } from "react-svg-path";
 import "./Lines.css";
 
-import Triangle from "./Triangle";
+import { triangle } from "./Triangle";
 
 const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
   const [linesArray, setLinesArray] = useState([]);
-  // const[deg,setDeg] = useState();
+  const [triangleTest, SetTriangleTest] = useState();
 
   let liness;
   const typePlayer = (key) => {
@@ -33,26 +33,29 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
 
   return line.map((value, key) => {
     return (
-      <Line
-        sx={value.p1.x}
-        sy={value.p1.y}
-        ex={value.p2.x}
-        ey={value.p2.y}
-        strokeWidth={6}
-        key={key}
-        onClick={() => {
-          typePlayer(key);
-          console.log(value.p1.deg - 1);
-          console.log(value.p2.deg - 1);
-          liness = [...linesArray, value.id];
-          setLinesArray(liness);
-          <Triangle line={liness} type={numPlayer} />;
-          console.log("click");
-          console.log(line);
-          console.log(liness);
-        }}
-        className={"line type" + value.type}
-      />
+      <>
+        <Line
+          sx={value.p1.x}
+          sy={value.p1.y}
+          ex={value.p2.x}
+          ey={value.p2.y}
+          strokeWidth={6}
+          key={key}
+          onClick={() => {
+            typePlayer(key);
+            // console.log(value.p1.deg - 1);
+            // console.log(value.p2.deg - 1);
+            liness = [...linesArray, value.id];
+            setLinesArray(liness);
+            triangle(liness, numPlayer);
+            // console.log("click");
+            // console.log(line);
+            // console.log(liness);
+          }}
+          className={"line type" + value.type}
+        />
+        {/* {triangleTest ? <Alert numPlayer={numPlayer} /> : ""} */}
+      </>
     );
   });
 };
