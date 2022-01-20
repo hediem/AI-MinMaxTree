@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 import { Line } from "react-svg-path";
-import "./Line.css";
+import "./Lines.css";
 
 import Triangle from "./Triangle";
 
 const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
   const [linesArray, setLinesArray] = useState([]);
+
   let liness;
   const typePlayer = (key) => {
     setLine(

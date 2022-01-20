@@ -3,7 +3,7 @@ import react, { useState } from "react";
 import Point from "./Point";
 import "./Draw.css";
 import Link from "./Link";
-import Lines from "./Line";
+import Lines from "./Lines";
 
 const Draw = ({ number, numPlayer, setNumPlayer }) => {
   const [line, setLine] = useState([]);
