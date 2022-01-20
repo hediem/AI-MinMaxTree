@@ -1,0 +1,15 @@
+.line {
+  transition: 0.5s ease-in-out;
+}
+.line.type0:hover {
+  stroke: rgb(0, 0, 0);
+}
+.line.type0 {
+  stroke: rgb(190, 190, 190);
+}
+.line.type1 {
+  stroke: blue;
+}
+.line.type2 {
+  stroke: red;
+}

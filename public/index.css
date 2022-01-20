@@ -1,0 +1,7 @@
+#root {
+  width: 1300px;
+  height: 700px;
+  margin: 100px auto;
+  border: black solid 3px;
+  border-radius: 20px;
+}
