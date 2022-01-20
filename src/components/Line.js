@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Line } from "react-svg-path";
 import "./Line.css";
-import Alert from "./Alert";
+
+import Triangle from "./Triangle";
 
 const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
   const [linesArray, setLinesArray] = useState([]);
-  const [tringleTest, setTringleTest] = useState(false);
-
-  useEffect(() => {
-    <Alert />;
-  }, [tringleTest]);
-
+  let liness;
   const typePlayer = (key) => {
     setLine(
       line.map((value, index) => {
@@ -23,48 +19,6 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
     refresher();
   };
 
-  const tringle = (liness) => {
-    for (let i = 0; i < liness.length; i++) {
-      for (let j = 0; j < liness.length; j++) {
-        if (j == i) continue;
-        if (liness[i].p1 == liness[j].p1 || liness[i].p2 == liness[j].p1) {
-          for (let k = 0; k < liness.length; k++) {
-            if (k == j || k == i) continue;
-            if (liness[j].p2 == liness[k].p1 || liness[j].p2 == liness[k].p2) {
-              if (
-                liness[i].p1 == liness[k].p1 ||
-                liness[i].p1 == liness[k].p2 ||
-                liness[i].p2 == liness[k].p1 ||
-                liness[i].p2 == liness[k].p2
-              ) {
-                setTringleTest(true);
-                console.log("tringle");
-                console.log(tringleTest);
-                return true;
-              }
-            }
-          }
-        }
-        if (liness[i].p1 == liness[j].p2 || liness[i].p2 == liness[j].p2) {
-          for (let k = 0; k != j && k != i && k < liness.length; k++) {
-            if (liness[j].p1 == liness[k].p1 || liness[j].p1 == liness[k].p2) {
-              if (
-                liness[i].p1 == liness[k].p1 ||
-                liness[i].p1 == liness[k].p2 ||
-                liness[i].p2 == liness[k].p1 ||
-                liness[i].p2 == liness[k].p2
-              ) {
-                setTringleTest(true);
-                console.log("tringle");
-                console.log(tringleTest);
-                return true;
-              }
-            }
-          }
-        }
-      }
-    }
-  };
   return line.map((value, key) => {
     return (
       <Line
@@ -76,12 +30,12 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
         key={key}
         onClick={() => {
           typePlayer(key);
-          let liness = [...linesArray, value.id];
+          liness = [...linesArray, value.id];
           setLinesArray(liness);
-          tringle(liness);
+          <Triangle line={liness} type={numPlayer} />;
           console.log("click");
-          console.log(line);
-          console.log(liness);
+          // console.log(line);
+          // console.log(liness);
         }}
         className={"line type" + value.type}
       />

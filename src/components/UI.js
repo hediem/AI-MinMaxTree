@@ -19,7 +19,7 @@ const UI = ({ number, setNumber, setNumPlayer }) => {
             type="button"
             style={{ marginRight: 25 }}
             value={1}
-            onClick={(e) => setNumPlayer(e.target.value)}
+            onClick={() => setNumPlayer(1)}
           >
             You
           </button>
@@ -28,7 +28,7 @@ const UI = ({ number, setNumber, setNumPlayer }) => {
             type="button"
             style={{ marginLeft: 25 }}
             value={2}
-            onClick={(e) => setNumPlayer(e.target.value)}
+            onClick={() => setNumPlayer(2)}
           >
             Computer
           </button>
@@ -51,7 +51,6 @@ const UI = ({ number, setNumber, setNumPlayer }) => {
         <Link className={"btn btn-primary start"} href="/game">
           Start
         </Link>
-        {/* <button onClick={(e) => handleclickstart(e)} className="btn btn-primary start" type="button" style={{margin:10}}>Start</button>         */}
       </div>
     </div>
   );
