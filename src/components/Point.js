@@ -16,6 +16,7 @@ const Point = ({ setLine, number }) => {
         x: 300 + 280 * Math.cos(temp),
         y: 300 - 280 * Math.sin(temp),
         id: counter,
+        deg: number - 1,
       });
       counter++;
     }
@@ -27,16 +28,18 @@ const Point = ({ setLine, number }) => {
           p1: {
             x: pointsArray[i].x,
             y: pointsArray[i].y,
+            deg: pointsArray[i].deg,
           },
           p2: {
             x: pointsArray[j].x,
             y: pointsArray[j].y,
+            deg: pointsArray[j].deg,
           },
-          type: 0,
           id: {
             p1: pointsArray[i].id,
             p2: pointsArray[j].id,
           },
+          type: 0,
         });
       }
     }
