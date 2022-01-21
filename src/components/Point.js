@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { Circle } from "react-svg-path";
 
-const Point = ({ setLine, number }) => {
-  const [point, setPoint] = useState([]);
+const Point = ({ point, setPoint, setLine, number }) => {
+  // const [point, setPoint] = useState([]);
   let counter = 0;
   //point
   useEffect(() => {

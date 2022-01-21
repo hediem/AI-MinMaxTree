@@ -8,6 +8,8 @@ import Lines from "./Lines";
 const Draw = ({ number, numPlayer, setNumPlayer }) => {
   const [line, setLine] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [points, setPoints] = useState([]);
+
   const refresher = () => {
     setRefresh(!refresh);
   };
@@ -20,8 +22,14 @@ const Draw = ({ number, numPlayer, setNumPlayer }) => {
           numPlayer={numPlayer}
           setNumPlayer={setNumPlayer}
           refresher={refresher}
+          point={points}
         />
-        <Point setLine={setLine} number={number} />
+        <Point
+          point={points}
+          setPoint={setPoints}
+          setLine={setLine}
+          number={number}
+        />
       </svg>
 
       <Link href={"./"}>

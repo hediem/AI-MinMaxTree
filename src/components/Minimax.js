@@ -2,9 +2,9 @@ import React from "react";
 
 import { nodeValidate } from "./NodeValidate";
 
-function minimax(lines, depth, alpha, beta) {
+function minimax(lines, depth, alpha, beta, points) {
   if (depth == 3 || !lines.some((value) => value.type == 0)) {
-    return nodeValidate();
+    return nodeValidate(lines, points);
   }
   if (depth % 2 == 0) {
     let val = Number.NEGATIVE_INFINITY;
@@ -13,7 +13,7 @@ function minimax(lines, depth, alpha, beta) {
         alpha = Math.max(alpha, val);
         if (beta < alpha) break;
         lines[i].type = 1;
-        val = Math.max(val, minimax(lines, depth + 1, alpha, beta));
+        val = Math.max(val, minimax(lines, depth + 1, alpha, beta, points));
         lines[i].type = 0;
       }
     }
@@ -25,7 +25,7 @@ function minimax(lines, depth, alpha, beta) {
         alpha = Math.min(alpha, val);
         if (beta < alpha) break;
         lines[i].type = 2;
-        val = Math.min(val, minimax(lines, depth + 1, alpha, beta));
+        val = Math.min(val, minimax(lines, depth + 1, alpha, beta, points));
         lines[i].type = 0;
       }
     }

@@ -6,7 +6,7 @@ import "./Lines.css";
 import { triangle } from "./Triangle";
 import { move } from "./Move";
 
-const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
+const Lines = ({ line, setLine, numPlayer, refresher, points }) => {
   const [linesArray, setLinesArray] = useState([]);
 
   const typePlayer = (key, numPlayer) => {
@@ -16,7 +16,6 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
     });
 
     setLine(temp);
-    // setNumPlayer(numPlayer == 1 ? 2 : 1);
     refresher();
     return temp;
   };
@@ -31,8 +30,10 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
       return theList;
     }, []);
     triangle(typeLines, 1);
-    let x = move(linesArray);
-    let index = linesArray.findIndex(
+    let x = move(line, points);
+    console.log(x);
+    console.log(line);
+    let index = line.findIndex(
       (value) => value.id.p1 == x.id.p1 && value.id.p2 == x.id.p2
     );
     temp = typePlayer(index, 2);

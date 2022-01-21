@@ -1,6 +1,6 @@
 import { minimax } from "./Minimax";
 
-function move(line) {
+function move(line, points) {
   let max = Number.NEGATIVE_INFINITY;
   let best = line.find((value) => value.type == 0);
   for (let i = 0; i < line.length; i++) {
@@ -10,7 +10,8 @@ function move(line) {
         line,
         1,
         Number.NEGATIVE_INFINITY,
-        Number.POSITIVE_INFINITY
+        Number.POSITIVE_INFINITY,
+        points
       );
       if (val >= max) {
         best = line[i];
