@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import Lines from "./Lines";
 
 function triangle(lines, type) {
   let triangleTest = false;
-  console.log(`type player in triangle ${type}`);
+  // console.log(`type player in triangle ${type}`);
   for (let i = 0; i < lines.length; i++) {
     for (let j = 0; j < lines.length; j++) {
       if (j == i) continue;
@@ -19,6 +18,7 @@ function triangle(lines, type) {
               lines[i].p2 == lines[k].p2
             ) {
               triangleTest = true;
+              console.log(triangleTest);
             }
           }
         }
@@ -33,6 +33,7 @@ function triangle(lines, type) {
               lines[i].p2 == lines[k].p2
             ) {
               triangleTest = true;
+              console.log(triangleTest);
             }
           }
         }
@@ -40,17 +41,17 @@ function triangle(lines, type) {
     }
   }
 
-  function theAlert(type) {
-    let my_icon = type == 2 ? "success" : "error";
-    Swal.fire({
-      icon: my_icon,
-      title: `${type == 2 ? "Hey..." : "Oops..."} `,
-      text: `${type == 2 ? "You Win" : "You Lost,Computer Win"}`,
-    });
-  }
   if (triangleTest) theAlert(type);
 
   return triangleTest;
 }
 
+function theAlert(type) {
+  let my_icon = type == 2 ? "success" : "error";
+  Swal.fire({
+    icon: my_icon,
+    title: `${type == 2 ? "Hey..." : "Oops..."} `,
+    text: `${type == 2 ? "You Win" : "You Lost,Computer Win"}`,
+  });
+}
 export { triangle };

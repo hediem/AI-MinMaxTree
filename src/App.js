@@ -6,7 +6,7 @@ import Game from "./components/Game";
 
 function App() {
   const [number, setNumber] = useState(0);
-  const [numPlayer, setNumPlayer] = useState(null);
+  const [numPlayer, setNumPlayer] = useState(1);
 
   useEffect(() => {
     console.log(numPlayer);

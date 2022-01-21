@@ -28,12 +28,12 @@ const Point = ({ setLine, number }) => {
           p1: {
             x: pointsArray[i].x,
             y: pointsArray[i].y,
-            deg: pointsArray[i].deg,
+            // deg: pointsArray[i].deg,
           },
           p2: {
             x: pointsArray[j].x,
             y: pointsArray[j].y,
-            deg: pointsArray[j].deg,
+            // deg: pointsArray[j].deg,
           },
           id: {
             p1: pointsArray[i].id,
