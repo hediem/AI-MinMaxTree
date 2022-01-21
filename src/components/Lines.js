@@ -21,12 +21,14 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
   };
   const handleClick = (value, key) => {
     let temp = typePlayer(key);
-    // console.log(line);
-    // console.log(`type player in Lines ${numPlayer}`);
     let liness = [...linesArray, value.id];
     setLinesArray(liness);
-    let typeLines = temp.filter((line) => line.type == numPlayer);
-    // console.log(typeLines);
+    let typeLines = temp.reduce((theList, line) => {
+      if (line.type == numPlayer) {
+        return [...theList, line.id];
+      }
+      return theList;
+    }, []);
     triangle(typeLines, numPlayer);
   };
   return line.map((value, key) => {
