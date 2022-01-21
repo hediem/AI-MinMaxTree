@@ -20,7 +20,7 @@ const Lines = ({ line, setLine, numPlayer, setNumPlayer, refresher }) => {
     refresher();
   };
   let typeLines = line.filter((line) => line.type == numPlayer);
-  // console.log(typeLines);
+  console.log(typeLines);
   return line.map((value, key) => {
     return (
       <Line
