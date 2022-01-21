@@ -8,7 +8,7 @@ const UI = ({ number, setNumber, setNumPlayer }) => {
   return (
     <div className="main">
       <div className="d-flex justify-content-center align-items-center">
-        <h1>Have nice time!</h1>
+        <h1>Have a nice time!</h1>
 
         <br />
         <h3>Choose first Player</h3>
