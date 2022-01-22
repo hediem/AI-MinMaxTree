@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import { Circle } from "react-svg-path";
 
-const Point = ({ point, setPoint, setLine, number }) => {
-  // const [point, setPoint] = useState([]);
+const Point = ({ points, setPoints, setLine, number }) => {
+  // const [points, setPoints] = useState([]);
   let counter = 0;
-  //point
+  //points
   useEffect(() => {
     let pointsArray = [];
     const Deg = (2 * Math.PI) / number;
@@ -43,11 +43,11 @@ const Point = ({ point, setPoint, setLine, number }) => {
         });
       }
     }
-    setPoint(pointsArray);
+    setPoints(pointsArray);
     setLine(lineArray);
   }, []);
 
-  return point.map((value, key) => {
+  return points.map((value, key) => {
     return (
       <Circle
         size={6}

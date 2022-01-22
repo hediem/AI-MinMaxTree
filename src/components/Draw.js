@@ -22,11 +22,11 @@ const Draw = ({ number, numPlayer, setNumPlayer }) => {
           numPlayer={numPlayer}
           setNumPlayer={setNumPlayer}
           refresher={refresher}
-          point={points}
+          points={points}
         />
         <Point
-          point={points}
-          setPoint={setPoints}
+          points={points}
+          setPoints={setPoints}
           setLine={setLine}
           number={number}
         />
